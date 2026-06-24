@@ -1,4 +1,4 @@
-name: CI-CD Pipeline
+name: GVR Pharma CI-CD
 
 on:
   push:
@@ -6,18 +6,26 @@ on:
       - main
 
 jobs:
-  build:
+  ci:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout Repository
+      - name: Clone Repository
         uses: actions/checkout@v4
 
-      - name: Verify Files
-        run: ls -la
+      - name: Verify Application Files
+        run: |
+          echo "Checking project files"
+          ls
 
-      - name: Build Successful
-        run: echo "Application Build Completed"
+      - name: Simulated Build
+        run: |
+          echo "Building application..."
 
-      - name: Deployment Successful
-        run: echo "Application Deployment Completed"
+      - name: Simulated Test
+        run: |
+          echo "Running tests..."
+
+      - name: Simulated Deployment
+        run: |
+          echo "Deploying application..."
